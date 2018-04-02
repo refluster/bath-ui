@@ -14,7 +14,6 @@ const routes: Routes = [
 		redirectTo: '/index',
 		pathMatch: 'full'
 	}
-
 ];
 
 @NgModule({
