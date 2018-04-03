@@ -31,7 +31,7 @@ export class IndexComponent {
 
 	ngOnInit(): void {
 		this.msgService.on('test', d => {
-			console.log(d);
+			this.text = d;
 		});
 	}
 
