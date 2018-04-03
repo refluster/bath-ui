@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { MsgService } from './service/msg.service';
+import { DeepstreamIoComponent } from './deepstream-io.component';
 
 @Component({
 	selector: 'index',
@@ -26,7 +27,6 @@ export class IndexComponent {
 	private text = 'hoge';
 
 	constructor(private msgService: MsgService, el: ElementRef) {
-		this._el = el.nativeElement;
 	};
 
 	ngOnInit(): void {

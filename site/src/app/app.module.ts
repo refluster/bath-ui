@@ -6,6 +6,7 @@ import { MsgService } from './service/msg.service';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index.component';
+import { DeepstreamIoComponent } from './deepstream-io.component';
 
 const routes: Routes = [
 	{
@@ -20,8 +21,9 @@ const routes: Routes = [
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
 		IndexComponent,
+		DeepstreamIoComponent
 	],
 	imports: [
 		BrowserModule,
