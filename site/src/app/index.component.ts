@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { MsgService } from './service/msg.service';
 
 @Component({
 	selector: 'index',
@@ -22,8 +23,19 @@ padding: 10px;
     `]
 })
 export class IndexComponent {
-	constructor() {}
+	private text = 'hoge';
+
+	constructor(private msgService: MsgService, el: ElementRef) {
+		this._el = el.nativeElement;
+	};
 
 	ngOnInit(): void {
+		this.msgService.on('test', d => {
+			console.log(d);
+		});
+	}
+
+	change(): void {
+		this.msgService.push('test', 'fuga');
 	}
 }
