@@ -30,7 +30,7 @@ export class DeepstreamIoComponent {
 		client.login();
 		client.event.subscribe('test_push', d => {
 			//this.msgService.push('mask', {backgroundColor: '#fff', opacity: '.5', display: 'block'});
-			console.log('deep steam io');
+			console.log('deep steam io', d);
 		})
 	}
 }
