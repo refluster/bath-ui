@@ -5,13 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { MsgService } from './service/msg.service';
 
 import { AppComponent } from './app.component';
-import { IndexComponent } from './index.component';
+import { ControllerComponent } from './controller.component';
 import { DeepstreamIoComponent } from './deepstream-io.component';
+import { IndexComponent } from './index.component';
 
 const routes: Routes = [
 	{
 		path: 'index',
 		component: IndexComponent
+	}, {
+		path: 'controller',
+		component: ControllerComponent
 	}, {
 		path: '',
 		redirectTo: '/index',
@@ -22,8 +26,9 @@ const routes: Routes = [
 @NgModule({
 	declarations: [
 		AppComponent,
-		IndexComponent,
+		ControllerComponent,
 		DeepstreamIoComponent
+		IndexComponent,
 	],
 	imports: [
 		BrowserModule,
