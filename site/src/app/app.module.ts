@@ -27,7 +27,7 @@ const routes: Routes = [
 	declarations: [
 		AppComponent,
 		ControllerComponent,
-		DeepstreamIoComponent
+		DeepstreamIoComponent,
 		IndexComponent,
 	],
 	imports: [
