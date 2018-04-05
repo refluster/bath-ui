@@ -7,6 +7,7 @@ import { MsgService } from './service/msg.service';
 import { AppComponent } from './app.component';
 import { ControllerComponent } from './controller.component';
 import { DeepstreamIoComponent } from './deepstream-io.component';
+import { WallDisplayComponent } from './wall-display.component';
 import { IndexComponent } from './index.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +20,9 @@ const routes: Routes = [
 		path: 'controller',
 		component: ControllerComponent
 	}, {
+		path: 'wall-display',
+		component: WallDisplayComponent
+	}, {
 		path: '',
 		redirectTo: '/index',
 		pathMatch: 'full'
@@ -30,6 +34,7 @@ const routes: Routes = [
 		AppComponent,
 		ControllerComponent,
 		DeepstreamIoComponent,
+		WallDisplayComponent,
 		IndexComponent,
 	],
 	imports: [
