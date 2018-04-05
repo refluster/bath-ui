@@ -1,2 +1,2 @@
-ng serve --host 0.0.0.0 --port 8892 --disableHostCheck true
+ng serve --host 0.0.0.0 --port 8700 --disableHostCheck true
 
