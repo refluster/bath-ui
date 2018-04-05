@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Headers, Http } from '@angular/http';
-import needle from 'needle';
 import { MsgService } from './service/msg.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { MsgService } from './service/msg.service';
     `]
 })
 export class ControllerComponent {
-	constructor(private msgService: MsgService, el: ElementRef) {}
+	constructor(private msgService: MsgService, el: ElementRef, private http: HttpClient) {}
 
 	ngOnInit(): void {
 	}
@@ -22,12 +22,15 @@ export class ControllerComponent {
 					   {power: 30}
 					  },
 					  eventName: 'test_push'
-					 a};
-		console.log(needle);
-		needle.post(url, body, { json: true }, (error, response) => {
-			console.log('error: %j', error);
-			console.log('response: %j', response);
-			console.log('post done by needle %j', response.body);
-		});
+					 };
+		this.http.post(url, body)
+			.subscribe(
+				res => {
+					console.log(res);
+				},
+				err => {
+					console.log("Error occured");
+				}
+			);
 	}
 }

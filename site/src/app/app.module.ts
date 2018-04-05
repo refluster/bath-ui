@@ -9,6 +9,8 @@ import { ControllerComponent } from './controller.component';
 import { DeepstreamIoComponent } from './deepstream-io.component';
 import { IndexComponent } from './index.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 const routes: Routes = [
 	{
 		path: 'index',
@@ -32,6 +34,7 @@ const routes: Routes = [
 	],
 	imports: [
 		BrowserModule,
+		HttpClientModule,
 		RouterModule.forRoot(routes),
 	],
 	providers: [
