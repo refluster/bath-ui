@@ -7,6 +7,7 @@ import { MsgService } from './service/msg.service';
 import { AppComponent } from './app.component';
 import { ControllerComponent } from './controller.component';
 import { DeepstreamIoComponent } from './deepstream-io.component';
+import { LivingPanelComponent } from './living-panel.component';
 import { WallDisplayComponent } from './wall-display.component';
 import { IndexComponent } from './index.component';
 
@@ -19,6 +20,9 @@ const routes: Routes = [
 	}, {
 		path: 'controller',
 		component: ControllerComponent
+	}, {
+		path: 'living-panel',
+		component: LivingPanelComponent
 	}, {
 		path: 'wall-display',
 		component: WallDisplayComponent
@@ -34,6 +38,7 @@ const routes: Routes = [
 		AppComponent,
 		ControllerComponent,
 		DeepstreamIoComponent,
+		LivingPanelComponent,
 		WallDisplayComponent,
 		IndexComponent,
 	],

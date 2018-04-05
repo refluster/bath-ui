@@ -3,11 +3,11 @@ import * as deepstream from 'deepstream.io-client-js';
 import { MsgService } from './service/msg.service';
 
 @Component({
-	selector: 'wall-display',
-	templateUrl: './wall-display.component.html',
+	selector: 'living-panel',
+	templateUrl: './living-panel.component.html',
 	styles: [``],
 })
-export class WallDisplayComponent {
+export class LivingPanelComponent {
 	constructor(private msgService: MsgService) {}
 
 	ngOnInit(): void {
