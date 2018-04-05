@@ -49,8 +49,8 @@ export class ControllerComponent {
 		this.post(url, body);
 	}
 
-	push_voice(): void {
-		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/voice';
+	push_voicectrl(): void {
+		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/voicectrl';
 		const body = {data:
 					  {wind:
 					   {power: 30}
