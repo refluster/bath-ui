@@ -1,7 +1,5 @@
 <div id="main">
-  <a href="/controller">controller</a>
-  <a href="/wall-display">wall-display</a>
-  <a href="/living-panel">living-panel</a>
+  <a *ngFor="let i of ['/controller', '/wall-display', '/living-panel']" href="{{i}}">{{i}}</a>
   <!-- test for msg-component
   {{text}}
   <button (click)="change();">change</button>
