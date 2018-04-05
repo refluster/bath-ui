@@ -15,14 +15,7 @@ export class ControllerComponent {
 	ngOnInit(): void {
 	}
 
-	push_weightcale(): void {
-		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/weightscale';
-		const body = {data:
-					  {wind:
-					   {power: 30}
-					  },
-					  eventName: 'test_push'
-					 };
+	post(url, body): void {
 		this.http.post(url, body)
 			.subscribe(
 				res => {
@@ -32,5 +25,16 @@ export class ControllerComponent {
 					console.log("Error occured");
 				}
 			);
+	}
+
+	push_weightcale(): void {
+		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/weightscale';
+		const body = {data:
+					  {wind:
+					   {power: 30}
+					  },
+					  eventName: 'test_push'
+					 };
+		this.post(url, body);
 	}
 }
