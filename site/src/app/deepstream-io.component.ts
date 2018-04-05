@@ -28,7 +28,7 @@ export class DeepstreamIoComponent {
 		// temporary use
 		var client = deepstream('13.56.190.2:6020');
 		client.login();
-		client.event.subscribe('test_push', d => {
+		client.event.subscribe('esdc/bath/test', d => {
 			//this.msgService.push('mask', {backgroundColor: '#fff', opacity: '.5', display: 'block'});
 			console.log('deep steam io', d);
 		})

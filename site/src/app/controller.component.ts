@@ -33,7 +33,29 @@ export class ControllerComponent {
 					  {wind:
 					   {power: 30}
 					  },
-					  eventName: 'test_push'
+					  eventName: 'esdc/bath/test'
+					 };
+		this.post(url, body);
+	}
+
+	push_mic(): void {
+		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/mic';
+		const body = {data:
+					  {wind:
+					   {power: 30}
+					  },
+					  eventName: 'esdc/bath/test'
+					 };
+		this.post(url, body);
+	}
+
+	push_voice(): void {
+		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/voice';
+		const body = {data:
+					  {wind:
+					   {power: 30}
+					  },
+					  eventName: 'esdc/bath/test'
 					 };
 		this.post(url, body);
 	}
