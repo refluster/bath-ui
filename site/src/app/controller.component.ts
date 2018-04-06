@@ -27,25 +27,18 @@ export class ControllerComponent {
 			);
 	}
 
-	push_weightcale(): void {
+	push_weightcale(data): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/weightscale';
-		const data = {wind:
-					  {power: 30}
-					 };
 		this.post(url, data);
 	}
 
-	push_mic(): void {
+	push_mic(data): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/mic';
-		const data = {mic: 'test'};
 		this.post(url, data);
 	}
 
-	push_voicectrl(): void {
+	push_voicectrl(data): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/voicectrl';
-		const data = {wind:
-					  {power: 30}
-					 };
 		this.post(url, data);
 	}
 }
