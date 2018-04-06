@@ -11,7 +11,6 @@ export class WallDisplayComponent {
 	constructor(private msgService: MsgService) {}
 
 	ngOnInit(): void {
-		console.log('push');
 		//var client = deepstream('52.192.206.13:6020');
 		// temporary use
 		let client = deepstream('13.56.190.2:6020');
