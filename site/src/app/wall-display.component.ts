@@ -8,6 +8,8 @@ import { MsgService } from './service/msg.service';
 	styles: [``],
 })
 export class WallDisplayComponent {
+	private json = ''
+
 	constructor(private msgService: MsgService) {}
 
 	ngOnInit(): void {
@@ -15,6 +17,7 @@ export class WallDisplayComponent {
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
 			console.log('deep steam io', d);
+			this.json = JSON.stringify(d, null , "  ");
 		})
 	}
 }
