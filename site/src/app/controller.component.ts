@@ -15,8 +15,8 @@ export class ControllerComponent {
 	ngOnInit(): void {
 	}
 
-	post(url, body): void {
-		this.http.post(url, body)
+	post(url, data): void {
+		this.http.post(url, {data: data, eventName: 'esdc/bath/test'})
 			.subscribe(
 				res => {
 					console.log(res);
@@ -29,34 +29,23 @@ export class ControllerComponent {
 
 	push_weightcale(): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/weightscale';
-		const body = {data:
-					  {wind:
-					   {power: 30}
-					  },
-					  eventName: 'esdc/bath/test'
+		const data = {wind:
+					  {power: 30}
 					 };
-		this.post(url, body);
+		this.post(url, data);
 	}
 
 	push_mic(): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/mic';
-		const body = {data:
-					  {wind:
-					   {power: 30}
-					  },
-					  eventName: 'esdc/bath/test'
-					 };
-		this.post(url, body);
+		const data = {mic: 'test'};
+		this.post(url, data);
 	}
 
 	push_voicectrl(): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/voicectrl';
-		const body = {data:
-					  {wind:
-					   {power: 30}
-					  },
-					  eventName: 'esdc/bath/test'
+		const data = {wind:
+					  {power: 30}
 					 };
-		this.post(url, body);
+		this.post(url, data);
 	}
 }
