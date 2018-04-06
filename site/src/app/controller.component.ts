@@ -14,6 +14,13 @@ export class ControllerComponent {
 		{json: {userid: 0, weight: 60, bmi: 23}, text: 'user0'},
 		{json: {userid: 1, weight: 48, bmi: 20}, text: 'user1'},
 	];
+	private mic_data = [
+		{json: {noise: true}, text: 'noise'},
+		{json: {status: 'shower'}, text: 'status/shower'},
+		{json: {status: 'bodywash'}, text: 'status/bodywash'},
+		{json: {status: 'bathing'}, text: 'status/bathing'},
+		{json: {status: 'absent'}, text: 'status/absent'},
+	];
 
 	constructor(private msgService: MsgService, el: ElementRef, private http: HttpClient) {}
 
