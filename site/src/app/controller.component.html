@@ -1,6 +1,12 @@
 <div id="main">
   controller
-  <button (click)="push_weightcale({w: 'weight'})">weightscale</button>
+  <div>
+    <ul>
+      <li *ngFor="let d of weightscale_data">
+        <button (click)="push_weightcale(d.json)">{{d.text}}</button>
+      </li>
+    </ul>
+  </div>
   <button (click)="push_mic({w: 'mic'})">mic</button>
   <button (click)="push_voicectrl({w: 'voicectrl'})">voicectrl</button>
 </div>

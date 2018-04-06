@@ -10,6 +10,11 @@ import { MsgService } from './service/msg.service';
     `]
 })
 export class ControllerComponent {
+	private weightscale_data = [
+		{json: {userid: 0, weight: 60, bmi: 23}, text: 'user0'},
+		{json: {userid: 1, weight: 48, bmi: 20}, text: 'user1'},
+	];
+
 	constructor(private msgService: MsgService, el: ElementRef, private http: HttpClient) {}
 
 	ngOnInit(): void {
