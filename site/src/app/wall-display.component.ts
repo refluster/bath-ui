@@ -16,7 +16,7 @@ export class WallDisplayComponent {
 		// temporary use
 		let client = deepstream('13.56.190.2:6020');
 		client.login();
-		client.event.subscribe('test_push', d => {
+		client.event.subscribe('esdc/bath/test', d => {
 			console.log('deep steam io', d);
 		})
 	}
