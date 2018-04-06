@@ -21,7 +21,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: d.eventName,
-			data: d.data
+			data: {weightscale: d.data}
 		}];
 		post(body);
 	}
@@ -31,7 +31,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: d.eventName,
-			data: d.data
+			data: {mic: d.data}
 		}];
 		post(body);
 	}
@@ -41,7 +41,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: d.eventName,
-			data: d.data
+			data: {voicectrl: d.data}
 		}];
 		post(body);
 	}
