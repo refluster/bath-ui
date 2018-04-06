@@ -14,6 +14,11 @@
       </li>
     </ul>
   </div>
-  <button (click)="push_mic({w: 'mic'})">mic</button>
-  <button (click)="push_voicectrl({w: 'voicectrl'})">voicectrl</button>
+  <div>
+    <ul>
+      <li *ngFor="let d of voicectrl_data">
+        <button (click)="push_voicectrl(d.json)">{{d.text}}</button>
+      </li>
+    </ul>
+  </div>
 </div>

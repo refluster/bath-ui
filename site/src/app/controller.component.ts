@@ -21,6 +21,16 @@ export class ControllerComponent {
 		{json: {status: 'bathing'}, text: 'status/bathing'},
 		{json: {status: 'absent'}, text: 'status/absent'},
 	];
+	private voicectrl_data = [
+		{json: {light: true}, text: 'light on'},
+		{json: {light: false}, text: 'light off'},
+		{json: {temperature: 42}, text: 'temperature 42'},
+		{json: {temperature: 41}, text: 'temperature 41'},
+		{json: {temperature: 40}, text: 'temperature 40'},
+		{json: {temperature: 39}, text: 'temperature 39'},
+		{json: {temperature: 38}, text: 'temperature 38'},
+		{json: {temperature: 37}, text: 'temperature 37'},
+	];
 
 	constructor(private msgService: MsgService, el: ElementRef, private http: HttpClient) {}
 
