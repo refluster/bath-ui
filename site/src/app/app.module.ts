@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MsgService } from './service/msg.service';
 
 import { AppComponent } from './app.component';
+import { ApiTestComponent } from './api-test.component';
 import { ControllerComponent } from './controller.component';
 import { DeepstreamIoComponent } from './deepstream-io.component';
 import { LivingPanelComponent } from './living-panel.component';
@@ -17,6 +18,9 @@ const routes: Routes = [
 	{
 		path: 'index',
 		component: IndexComponent
+	}, {
+		path: 'api-test',
+		component: ApiTestComponent
 	}, {
 		path: 'controller',
 		component: ControllerComponent
@@ -36,6 +40,7 @@ const routes: Routes = [
 @NgModule({
 	declarations: [
 		AppComponent,
+		ApiTestComponent,
 		ControllerComponent,
 		DeepstreamIoComponent,
 		LivingPanelComponent,
