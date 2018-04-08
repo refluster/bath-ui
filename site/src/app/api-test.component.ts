@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import * as deepstream from 'deepstream.io-client-js';
 
 @Component({
@@ -9,14 +10,15 @@ import * as deepstream from 'deepstream.io-client-js';
 export class ApiTestComponent {
 	private json = ''
 
-	constructor() {}
+	constructor(private datePipe: DatePipe) {}
 
 	ngOnInit(): void {
 		let client = deepstream('52.192.206.13:6020');
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
-			console.log('deep steam io', d);
-			this.json = JSON.stringify(d, null , "  ");
+			console.log('deepsteam-io receive:', d);
+			this.json = this.datePipe.transform(new Date(), 'medium') + '\n'
+				+ JSON.stringify(d, null , "  ");
 		})
 	}
 }

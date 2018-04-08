@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { MsgService } from './service/msg.service';
 
@@ -53,7 +54,8 @@ const routes: Routes = [
 		RouterModule.forRoot(routes),
 	],
 	providers: [
-		MsgService
+		MsgService,
+		DatePipe,
 	],
 	bootstrap: [AppComponent]
 })
