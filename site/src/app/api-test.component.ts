@@ -17,8 +17,11 @@ export class ApiTestComponent {
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
 			console.log('deepsteam-io receive:', d);
-			this.json = this.datePipe.transform(new Date(), 'medium') + '\n'
-				+ JSON.stringify(d, null , "  ");
+			this.json = this.datePipe.transform(new Date(), 'medium')
+				+ '\n--\n'
+				+ JSON.stringify(d, null , "  ")
+				+ '\n===========================\n\n'
+				+ this.json;
 		})
 	}
 }
