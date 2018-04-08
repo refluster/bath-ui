@@ -23,7 +23,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: eventName,
-			data: {weightscale: d.data}
+			data: {weightscale: d}
 		}];
 		post(body);
 	}
@@ -33,7 +33,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: eventName,
-			data: {mic: d.data}
+			data: {mic: d}
 		}];
 		post(body);
 	}
@@ -43,7 +43,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: eventName,
-			data: {voicectrl: d.data}
+			data: {voicectrl: d}
 		}];
 		post(body);
 	}
