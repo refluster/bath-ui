@@ -38,7 +38,7 @@ export class ControllerComponent {
 	}
 
 	post(url, data): void {
-		this.http.post(url, {data: data, eventName: 'esdc/bath/test'})
+		this.http.post(url, data)
 			.subscribe(
 				res => {
 					console.log(res);
