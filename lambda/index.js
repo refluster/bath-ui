@@ -18,12 +18,11 @@ exports.handler = (event, context, callback) => {
 	console.log('event: %j', event);
 
 	if (event.weightscale !== undefined) {
-		let d = event.weightscale;
 		let body = [{
 			topic: 'event',
 			action: 'emit',
 			eventName: eventName,
-			data: {weightscale: d}
+			data: event,
 		}];
 		post(body);
 	}
@@ -33,7 +32,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: eventName,
-			data: {mic: d}
+			data: event,
 		}];
 		post(body);
 	}
@@ -43,7 +42,7 @@ exports.handler = (event, context, callback) => {
 			topic: 'event',
 			action: 'emit',
 			eventName: eventName,
-			data: {voicectrl: d}
+			data: event,
 		}];
 		post(body);
 	}
