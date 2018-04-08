@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
 	{
-		path: 'index',
+		path: '',
 		component: IndexComponent
 	}, {
 		path: 'api-test',
@@ -32,8 +32,8 @@ const routes: Routes = [
 		path: 'wall-display',
 		component: WallDisplayComponent
 	}, {
-		path: '',
-		redirectTo: '/index',
+		path: '**',
+		redirectTo: '/',
 		pathMatch: 'full'
 	}
 ];
