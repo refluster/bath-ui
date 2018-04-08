@@ -1,6 +1,8 @@
 const needle = require('needle')
 
 exports.handler = (event, context, callback) => {
+	let eventName = 'esdc/bath/test';
+
 	function post(body) {
 		console.log('body: %j', body);
 		needle.post(process.env.HTTP_URL, { body }, { json: true }, (error, response) => {
@@ -20,7 +22,7 @@ exports.handler = (event, context, callback) => {
 		let body = [{
 			topic: 'event',
 			action: 'emit',
-			eventName: d.eventName,
+			eventName: eventName,
 			data: {weightscale: d.data}
 		}];
 		post(body);
@@ -30,7 +32,7 @@ exports.handler = (event, context, callback) => {
 		let body = [{
 			topic: 'event',
 			action: 'emit',
-			eventName: d.eventName,
+			eventName: eventName,
 			data: {mic: d.data}
 		}];
 		post(body);
@@ -40,7 +42,7 @@ exports.handler = (event, context, callback) => {
 		let body = [{
 			topic: 'event',
 			action: 'emit',
-			eventName: d.eventName,
+			eventName: eventName,
 			data: {voicectrl: d.data}
 		}];
 		post(body);
