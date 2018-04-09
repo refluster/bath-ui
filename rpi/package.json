@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "deepstream.io-client-js": "^2.3.0"
+    "deepstream.io-client-js": "^2.3.0",
+    "onoff": "^3.0.2"
   }
 }
