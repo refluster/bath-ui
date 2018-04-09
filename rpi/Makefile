@@ -1,3 +1,3 @@
 run:
-	node index.js
+	node index.js >> log.txt
 
