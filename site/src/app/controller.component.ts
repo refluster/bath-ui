@@ -7,6 +7,7 @@ import { MsgService } from './service/msg.service';
 	selector: 'controller',
 	templateUrl: './controller.component.html',
     styles: [`
+      ul {list-style-type: none}
     `]
 })
 export class ControllerComponent {
