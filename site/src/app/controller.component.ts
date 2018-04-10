@@ -52,7 +52,7 @@ export class ControllerComponent {
 			);
 	}
 
-	push_weightcale(data): void {
+	push_weightscale(data): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/weightscale';
 		this.post(url, data);
 	}
