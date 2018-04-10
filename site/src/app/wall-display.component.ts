@@ -34,9 +34,9 @@ export class WallDisplayComponent {
 				} else if (this.temperature > temperature_max) {
 					this.temperature = temperature_max;
 				}
+				console.log(this.temperature);
 			}
-			console.log(this.temperature);
-			console.log('deep steam io', d);
+			console.log('deepsteam-io', d);
 		})
 	}
 }
