@@ -6,6 +6,7 @@ import * as deepstream from 'deepstream.io-client-js';
 	selector: 'api-test',
 	templateUrl: './api-test.component.html',
 	styles: [`
+hr {margin: 8px 0px;}
 #main {padding: 16px;}
     `],
 })
