@@ -25,6 +25,8 @@ export class ControllerComponent {
 	private voicectrl_data = [
 		{json: {light: true}, text: 'light on'},
 		{json: {light: false}, text: 'light off'},
+		{json: {temperature: '+'}, text: 'temperature +'},
+		{json: {temperature: '-'}, text: 'temperature -'},
 		{json: {temperature: 42}, text: 'temperature 42'},
 		{json: {temperature: 41}, text: 'temperature 41'},
 		{json: {temperature: 40}, text: 'temperature 40'},

@@ -8,6 +8,8 @@ import { MsgService } from './service/msg.service';
 	styles: [``],
 })
 export class LivingPanelComponent {
+	private noise = false;
+
 	constructor(private msgService: MsgService) {}
 
 	ngOnInit(): void {
@@ -15,6 +17,10 @@ export class LivingPanelComponent {
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
 			console.log('deep steam io', d);
+			if (d.mic !== undefined &&
+				d.mic.noise == true) {
+				this.noise = true;
+			}
 		})
 	}
 }
