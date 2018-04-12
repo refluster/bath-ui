@@ -7,6 +7,7 @@ import { MsgService } from './service/msg.service';
 	selector: 'controller',
 	templateUrl: './controller.component.html',
     styles: [`
+      ul {list-style-type: none}
     `]
 })
 export class ControllerComponent {
@@ -24,6 +25,8 @@ export class ControllerComponent {
 	private voicectrl_data = [
 		{json: {light: true}, text: 'light on'},
 		{json: {light: false}, text: 'light off'},
+		{json: {temperature: '+'}, text: 'temperature +'},
+		{json: {temperature: '-'}, text: 'temperature -'},
 		{json: {temperature: 42}, text: 'temperature 42'},
 		{json: {temperature: 41}, text: 'temperature 41'},
 		{json: {temperature: 40}, text: 'temperature 40'},
@@ -49,7 +52,7 @@ export class ControllerComponent {
 			);
 	}
 
-	push_weightcale(data): void {
+	push_weightscale(data): void {
 		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/weightscale';
 		this.post(url, data);
 	}

@@ -8,7 +8,7 @@ import * as deepstream from 'deepstream.io-client-js';
 	styles: [``],
 })
 export class ApiTestComponent {
-	private json = ''
+	private json = '';
 
 	constructor(private datePipe: DatePipe) {}
 
