@@ -38,9 +38,9 @@ import { MsgService } from './service/msg.service';
     `],
 })
 export class WallDisplayComponent {
-	private disp_c = '';
-	private disp_l = '';
-	private disp_r = '';
+	private disp_c = 0;
+	private disp_l = 0;
+	private disp_r = 0;
 
 	constructor(private msgService: MsgService) {}
 
@@ -48,9 +48,14 @@ export class WallDisplayComponent {
 		let client = deepstream('52.192.206.13:6020');
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
+			if (d.weightscale !== undefined) {
+				this.disp_l = 1;
+			}
 			if (d.voicectrl !== undefined &&
 				d.voicectrl.temperature !== undefined) {
+				let t = d.voicectrl.temperature;
 				if (t == '+') {
+					this.disp_l = 2;
 				} else if (t == '-') {
 				} else if (typeof(t) == 'number') {
 				}
