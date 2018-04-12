@@ -41,8 +41,6 @@ export class ControllerComponent {
 		{json: {temperature: 39}, text: 'temperature 39'},
 		{json: {temperature: 38}, text: 'temperature 38'},
 		{json: {temperature: 37}, text: 'temperature 37'},
-		{json: {temperature: '+'}, text: 'temperature +'},
-		{json: {temperature: '-'}, text: 'temperature -'},
 	];
 
 	constructor(private msgService: MsgService, el: ElementRef, private http: HttpClient) {}
