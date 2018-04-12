@@ -38,7 +38,9 @@ import { MsgService } from './service/msg.service';
     `],
 })
 export class WallDisplayComponent {
-	private temperature = 40;
+	private disp_c = '';
+	private disp_l = '';
+	private disp_r = '';
 
 	constructor(private msgService: MsgService) {}
 
@@ -48,23 +50,10 @@ export class WallDisplayComponent {
 		client.event.subscribe('esdc/bath/test', d => {
 			if (d.voicectrl !== undefined &&
 				d.voicectrl.temperature !== undefined) {
-				let temperature_max = 44;
-				let temperature_min = 35;
-				let t = d.voicectrl.temperature;
 				if (t == '+') {
-					this.temperature = this.temperature + 1;
 				} else if (t == '-') {
-					this.temperature = this.temperature - 1;
 				} else if (typeof(t) == 'number') {
-					this.temperature = Math.floor(t);
 				}
-				// clip
-				if (this.temperature < temperature_min) {
-					this.temperature = temperature_min;
-				} else if (this.temperature > temperature_max) {
-					this.temperature = temperature_max;
-				}
-				console.log(this.temperature);
 			}
 			console.log('deepsteam-io', d);
 		})
