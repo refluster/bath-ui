@@ -23,8 +23,16 @@ export class ControllerComponent {
 		{json: {status: 'absent'}, text: 'status/absent'},
 	];
 	private voicectrl_data = [
-		{json: {light: true}, text: 'light on'},
-		{json: {light: false}, text: 'light off'},
+		{json: {lightA: {power: true}}, text: 'lightA power on'},
+		{json: {lightA: {power: false}}, text: 'lightA power off'},
+		{json: {lightA: {swpower: true}}, text: 'lightA swpower'},
+		{json: {lightA: {bright: 5}}, text: 'lightA bright 5'},
+		{json: {lightA: {dark: 3}}, text: 'lightA bright 3'},
+		{json: {lightB: {power: true}}, text: 'lightB power on'},
+		{json: {lightB: {power: false}}, text: 'lightB power off'},
+		{json: {lightB: {swpower: true}}, text: 'lightB swpower'},
+		{json: {lightB: {bright: 5}}, text: 'lightB bright 5'},
+		{json: {lightB: {dark: 3}}, text: 'lightB bright 3'},
 		{json: {temperature: '+'}, text: 'temperature +'},
 		{json: {temperature: '-'}, text: 'temperature -'},
 		{json: {temperature: 42}, text: 'temperature 42'},
