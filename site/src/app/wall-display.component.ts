@@ -67,12 +67,9 @@ export class WallDisplayComponent {
 			}
 			if (d.mic !== undefined) {
 				if (d.mic.status !== undefined) {
-					let s = d.mic.status;
-					if (s == 'bathing') {
-						this.fadeInAnim('B12');
-					}
-					if (s == 'other' || s == 'absent') {
-						this.fadeInAnim('B15');
+					let key = {bathing: 'B12', other: 'B15', absent: 'B15'};
+					if (key[d.mic.status] !== undefined) {
+						this.fadeInAnim(key[d.mic.status]);
 					}
 				}
 				if (d.mic.misc !== undefined) {
