@@ -33,6 +33,8 @@ export class ControllerComponent {
 		{json: {status: 'absent'}, text: 'status/absent'},
 	];
 	private voicectrl_data = [
+		{json: {call: true}, text: 'call'},
+		{json: {changeMusic: true}, text: 'change music'},
 		{json: {lightA: {power: true}}, text: 'lightA power on'},
 		{json: {lightA: {power: false}}, text: 'lightA power off'},
 		{json: {lightA: {swpower: true}}, text: 'lightA swpower'},
