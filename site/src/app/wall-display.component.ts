@@ -24,29 +24,34 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
   top:0; left:0;
   width: 100%;
   height: 100%;
+  background-color: #ba9;
+}
+img {
+  width: 100%;
+  height: 100%;
 }
     `],
 	animations: [
 		trigger('fadeIn', [
 			state('display', style({ opacity: 1 })),
 			state('hide', style({ opacity: 0 })),
-			transition('hide => display', animate('0ms linear')),
-			transition('display => hide', animate('2000ms linear'))
+			transition('hide => display', animate('2000ms linear')),
+			transition('display => hide', animate('0ms linear'))
 		])
 	]
 })
 export class WallDisplayComponent {
 	private temperature = 40;
 	private state = {
-		B10: 'display',
-		B11: 'display',
-		B12: 'display',
-		B13: 'display',
-		B14: 'display',
-		B15: 'display',
-		B20: 'display',
-		B30: 'display',
-		B40: 'display',
+		B10: 'hide',
+		B11: 'hide',
+		B12: 'hide',
+		B13: 'hide',
+		B14: 'hide',
+		B15: 'hide',
+		B20: 'hide',
+		B30: 'hide',
+		B40: 'hide',
 	};
 	private B40 = 'display';
 	private lastImage = '';
@@ -59,13 +64,14 @@ export class WallDisplayComponent {
 		client.event.subscribe('esdc/bath/test', d => {
 			console.log('voice');
 			if (d.weightscale !== undefined) {
+				this.fadeInAnim('B10');
 			}
 			if (d.voicectrl !== undefined &&
 				d.voicectrl.temperature !== undefined) {
 				let t = d.voicectrl.temperature;
 				if (t == '+') {
 					console.log('+');
-					this.state.B40 = 'hide';
+					this.fadeInAnim('B11');
 					this.temperature = this.temperature + 1;
 				} else if (t == '-') {
 				} else if (typeof(t) == 'number') {
@@ -73,5 +79,17 @@ export class WallDisplayComponent {
 			}
 			console.log('deepsteam-io', d);
 		})
+	}
+
+	fadeInAnim(key): void {
+		this.state[key] = 'display';
+		if (this.lastKey != '') {
+			let k = this.lastKey;
+			setTimeout(() => {
+				console.log(k, ' fade');
+				this.state[k] = 'hide';
+			}, 2000);
+		}
+		this.lastKey = key;
 	}
 }
