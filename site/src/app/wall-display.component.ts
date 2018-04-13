@@ -9,32 +9,16 @@ import { MsgService } from './service/msg.service';
 #main {
   width: 2160px;
   height: 3840px;
-  position: absolute;
 }
-#c {
-  position: absolute;
+#content {
+  position: relative;
   width: 2160px;
-  height: 3040px;
+  height: 3840px;
   top: 0;
   left: 0;
-  background-color: #8888ff;
+  background-color: #ba9;
 }
-#l {
-  position: absolute;
-  width: 1080px;
-  height: 800px;
-  top: 3040px;
-  left: 0;
-  background-color: #ff8888;
-}
-#r {
-  position: absolute;
-  width: 1080px;
-  height: 800px;
-  top: 3040px;
-  left: 1080px;
-  background-color: #88ff88;
-}
+
     `],
 })
 export class WallDisplayComponent {
