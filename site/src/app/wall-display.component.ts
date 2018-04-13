@@ -41,7 +41,6 @@ img {
 	]
 })
 export class WallDisplayComponent {
-	private temperature = 40;
 	private state = {
 		B10: 'hide',
 		B11: 'hide',
@@ -62,7 +61,7 @@ export class WallDisplayComponent {
 		let client = deepstream('52.192.206.13:6020');
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
-			console.log('voice');
+			console.log('=========== deepsteam-io', d);
 			if (d.weightscale !== undefined) {
 				this.fadeInAnim('B10');
 			}
@@ -86,18 +85,13 @@ export class WallDisplayComponent {
 				if (d.voicectrl.temperature !== undefined) {
 					let t = d.voicectrl.temperature;
 					if (t == '+') {
-						console.log('+');
 						this.fadeInAnim('B11');
-						this.temperature = this.temperature + 1;
-					} else if (t == '-') {
-					} else if (typeof(t) == 'number') {
 					}
 				}
 				if (d.voicectrl.changeMusic !== undefined) {
 					this.fadeInAnim('B13');
 				}
 			}
-			console.log('deepsteam-io', d);
 		})
 	}
 
@@ -106,7 +100,6 @@ export class WallDisplayComponent {
 		if (this.lastKey != '') {
 			let k = this.lastKey;
 			setTimeout(() => {
-				console.log(k, ' fade');
 				this.state[k] = 'hide';
 			}, 2000);
 		}
