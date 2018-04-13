@@ -21,6 +21,9 @@ import { MsgService } from './service/msg.service';
     `]
 })
 export class ControllerComponent {
+	private misc_data = [
+		{json: {misc: {recommend: true}}, text: 'recommend'},
+	];
 	private weightscale_data = [
 		{json: {userid: 0, weight: 60, bmi: 23}, text: 'user0'},
 		{json: {userid: 1, weight: 48, bmi: 20}, text: 'user1'},

@@ -54,7 +54,7 @@ export class WallDisplayComponent {
 		B40: 'hide',
 	};
 	private B40 = 'display';
-	private lastImage = '';
+	private lastKey = '';
 
 	constructor(private msgService: MsgService) {}
 
@@ -66,15 +66,35 @@ export class WallDisplayComponent {
 			if (d.weightscale !== undefined) {
 				this.fadeInAnim('B10');
 			}
-			if (d.voicectrl !== undefined &&
-				d.voicectrl.temperature !== undefined) {
-				let t = d.voicectrl.temperature;
-				if (t == '+') {
-					console.log('+');
-					this.fadeInAnim('B11');
-					this.temperature = this.temperature + 1;
-				} else if (t == '-') {
-				} else if (typeof(t) == 'number') {
+			if (d.mic !== undefined) {
+				if (d.mic.status !== undefined) {
+					let s = d.mic.status;
+					if (s == 'bathing') {
+						this.fadeInAnim('B12');
+					}
+					if (s == 'other' || s == 'absent') {
+						this.fadeInAnim('B15');
+					}
+				}
+				if (d.mic.misc !== undefined) {
+					if (d.mic.misc.recommend !== undefined) {
+						this.fadeInAnim('B14');
+					}
+				}
+			}
+			if (d.voicectrl !== undefined) {
+				if (d.voicectrl.temperature !== undefined) {
+					let t = d.voicectrl.temperature;
+					if (t == '+') {
+						console.log('+');
+						this.fadeInAnim('B11');
+						this.temperature = this.temperature + 1;
+					} else if (t == '-') {
+					} else if (typeof(t) == 'number') {
+					}
+				}
+				if (d.voicectrl.changeMusic !== undefined) {
+					this.fadeInAnim('B13');
 				}
 			}
 			console.log('deepsteam-io', d);
