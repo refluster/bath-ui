@@ -37,7 +37,19 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
 })
 export class WallDisplayComponent {
 	private temperature = 40;
-	private L1 = 'display', L2 = 'display';
+	private state = {
+		B10: 'display',
+		B11: 'display',
+		B12: 'display',
+		B13: 'display',
+		B14: 'display',
+		B15: 'display',
+		B20: 'display',
+		B30: 'display',
+		B40: 'display',
+	};
+	private B40 = 'display';
+	private lastImage = '';
 
 	constructor(private msgService: MsgService) {}
 
@@ -45,14 +57,15 @@ export class WallDisplayComponent {
 		let client = deepstream('52.192.206.13:6020');
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
+			console.log('voice');
 			if (d.weightscale !== undefined) {
-				this.disp_l = 1;
 			}
 			if (d.voicectrl !== undefined &&
 				d.voicectrl.temperature !== undefined) {
 				let t = d.voicectrl.temperature;
 				if (t == '+') {
-					this.L2 = 'hide';
+					console.log('+');
+					this.state.B40 = 'hide';
 					this.temperature = this.temperature + 1;
 				} else if (t == '-') {
 				} else if (typeof(t) == 'number') {
