@@ -7,7 +7,17 @@ import { MsgService } from './service/msg.service';
 	selector: 'controller',
 	templateUrl: './controller.component.html',
     styles: [`
-      ul {list-style-type: none}
+      ul {
+        list-style-type: none;
+        margin: 4px 0px;
+      }
+      li {
+        margin: 2px 0px;
+      }
+      hr {
+        margin: 8px 0px;
+      }
+      #main {padding: 16px;}
     `]
 })
 export class ControllerComponent {

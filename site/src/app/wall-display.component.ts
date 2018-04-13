@@ -45,26 +45,18 @@ export class WallDisplayComponent {
 		let client = deepstream('52.192.206.13:6020');
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
+			if (d.weightscale !== undefined) {
+				this.disp_l = 1;
+			}
 			if (d.voicectrl !== undefined &&
 				d.voicectrl.temperature !== undefined) {
-				let temperature_max = 44;
-				let temperature_min = 35;
 				let t = d.voicectrl.temperature;
 				if (t == '+') {
 					this.L2 = 'hide';
 					this.temperature = this.temperature + 1;
 				} else if (t == '-') {
-					this.temperature = this.temperature - 1;
 				} else if (typeof(t) == 'number') {
-					this.temperature = Math.floor(t);
 				}
-				// clip
-				if (this.temperature < temperature_min) {
-					this.temperature = temperature_min;
-				} else if (this.temperature > temperature_max) {
-					this.temperature = temperature_max;
-				}
-				console.log(this.temperature);
 			}
 			console.log('deepsteam-io', d);
 		})

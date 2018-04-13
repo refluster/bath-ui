@@ -5,7 +5,10 @@ import * as deepstream from 'deepstream.io-client-js';
 @Component({
 	selector: 'api-test',
 	templateUrl: './api-test.component.html',
-	styles: [``],
+	styles: [`
+hr {margin: 8px 0px;}
+#main {padding: 16px;}
+    `],
 })
 export class ApiTestComponent {
 	private json = '';
