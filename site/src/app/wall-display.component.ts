@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import * as deepstream from 'deepstream.io-client-js';
 import { MsgService } from './service/msg.service';
+import { trigger, state, style, transition, animate, group } from '@angular/animations';
 
 @Component({
 	selector: 'wall-display',
@@ -18,11 +19,25 @@ import { MsgService } from './service/msg.service';
   left: 0;
   background-color: #ba9;
 }
-
+.resource {
+  position: absolute;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+}
     `],
+	animations: [
+		trigger('fadeIn', [
+			state('display', style({ opacity: 1 })),
+			state('hide', style({ opacity: 0 })),
+			transition('hide => display', animate('0ms linear')),
+			transition('display => hide', animate('2000ms linear'))
+		])
+	]
 })
 export class WallDisplayComponent {
 	private temperature = 40;
+	private L1 = 'display', L2 = 'display';
 
 	constructor(private msgService: MsgService) {}
 
@@ -36,6 +51,7 @@ export class WallDisplayComponent {
 				let temperature_min = 35;
 				let t = d.voicectrl.temperature;
 				if (t == '+') {
+					this.L2 = 'hide';
 					this.temperature = this.temperature + 1;
 				} else if (t == '-') {
 					this.temperature = this.temperature - 1;
