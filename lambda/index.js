@@ -18,33 +18,21 @@ exports.handler = (event, context, callback) => {
 	console.log('event: %j', event);
 
 	if (event.weightscale !== undefined) {
-		let body = [{
-			topic: 'event',
-			action: 'emit',
-			eventName: eventName,
-			data: event,
-		}];
-		post(body);
 	}
 	if (event.mic !== undefined) {
-		if (event.mic.status !== undefined) {
+		if (event.mic.status !== undefined &&
+			event.mic.status == 'bathing') {
 			event.voicectrl = {lightA: {dark: 5}};
 		}
-		let body = [{
-			topic: 'event',
-			action: 'emit',
-			eventName: eventName,
-			data: event,
-		}];
-		post(body);
 	}
 	if (event.voicectrl !== undefined) {
-		let body = [{
-			topic: 'event',
-			action: 'emit',
-			eventName: eventName,
-			data: event,
-		}];
-		post(body);
 	}
+
+	let body = [{
+		topic: 'event',
+		action: 'emit',
+		eventName: eventName,
+		data: event,
+	}];
+	post(body);
 };
