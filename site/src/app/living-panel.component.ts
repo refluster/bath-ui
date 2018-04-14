@@ -64,6 +64,11 @@ export class LivingPanelComponent {
 			if (d.weightscale !== undefined) {
 				this.fadeInAnim('L11');
 			}
+			if (d.voicectrl !== undefined) {
+				if (d.voicectrl.call == true) {
+					this.fadeInAnim('L20');
+				}
+			}
 			if (d.mic !== undefined) {
 				if (d.mic.status !== undefined) {
 					let key = {shower: 'L12', bathing: 'L13', other: 'L14', absent: 'L14'};
