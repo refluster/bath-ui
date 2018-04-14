@@ -79,6 +79,9 @@ export class WallDisplayComponent {
 				}
 			}
 			if (d.voicectrl !== undefined) {
+				if (d.voicectrl.call == true) {
+					this.fadeInAnim('B20');
+				}
 				if (d.voicectrl.temperature !== undefined) {
 					let t = d.voicectrl.temperature;
 					if (t == '+') {
