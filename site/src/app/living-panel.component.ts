@@ -53,7 +53,6 @@ export class LivingPanelComponent {
 		L50: 'hide',
 	};
 	private lastKey = '';
-	private noise = false;
 
 	constructor(private msgService: MsgService) {}
 
@@ -65,9 +64,13 @@ export class LivingPanelComponent {
 			if (d.weightscale !== undefined) {
 				this.fadeInAnim('L11');
 			}
-			if (d.mic !== undefined &&
-				d.mic.noise == true) {
-				this.noise = true;
+			if (d.mic !== undefined) {
+				if (d.mic.status !== undefined) {
+					let key = {shower: 'L12', bathing: 'L13', other: 'L14', absent: 'L14'};
+					if (key[d.mic.status] !== undefined) {
+						this.fadeInAnim(key[d.mic.status]);
+					}
+				}
 			}
 		})
 	}
