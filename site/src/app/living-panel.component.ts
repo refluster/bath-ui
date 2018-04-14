@@ -76,6 +76,11 @@ export class LivingPanelComponent {
 						this.fadeInAnim(key[d.mic.status]);
 					}
 				}
+				if (d.mic.misc !== undefined) {
+					if (d.mic.misc.alertLong !== undefined) {
+						this.fadeInAnim('L30');
+					}
+				}
 			}
 		})
 	}
