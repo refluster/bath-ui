@@ -78,7 +78,7 @@ export class WallDisplayComponent {
 				}
 				if (d.mic.misc !== undefined) {
 					if (d.mic.misc.reset !== undefined) {
-						this.fadeInAnim('B10');
+						this.fadeInAnim('B00');
 					}
 					if (d.mic.misc.recommend !== undefined) {
 						this.fadeInAnim('B14');
@@ -107,7 +107,7 @@ export class WallDisplayComponent {
 
 	fadeInAnim(key): void {
 		this.state[key] = 'display';
-		if (this.lastKey != '') {
+		if (this.lastKey != '' && this.lastKey != key) {
 			let k = this.lastKey;
 			setTimeout(() => {
 				this.state[k] = 'hide';

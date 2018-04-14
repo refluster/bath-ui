@@ -93,7 +93,7 @@ export class LivingPanelComponent {
 
 	fadeInAnim(key): void {
 		this.state[key] = 'display';
-		if (this.lastKey != '') {
+		if (this.lastKey != '' && this.lastKey != key) {
 			let k = this.lastKey;
 			setTimeout(() => {
 				this.state[k] = 'hide';
