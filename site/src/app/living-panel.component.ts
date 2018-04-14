@@ -70,6 +70,9 @@ export class LivingPanelComponent {
 				}
 			}
 			if (d.mic !== undefined) {
+				if (d.mic.noise !== undefined) {
+					this.fadeInAnim('L40');
+				}
 				if (d.mic.status !== undefined) {
 					let key = {shower: 'L12', bathing: 'L13', other: 'L14', absent: 'L14'};
 					if (key[d.mic.status] !== undefined) {
