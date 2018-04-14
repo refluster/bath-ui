@@ -66,6 +66,9 @@ export class WallDisplayComponent {
 				this.fadeInAnim('B10');
 			}
 			if (d.mic !== undefined) {
+				if (d.mic.noise !== undefined) {
+					this.fadeInAnim('B40');
+				}
 				if (d.mic.status !== undefined) {
 					let key = {bathing: 'B12', other: 'B15', absent: 'B15'};
 					if (key[d.mic.status] !== undefined) {
