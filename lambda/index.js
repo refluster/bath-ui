@@ -27,7 +27,6 @@ exports.handler = (event, context, callback) => {
 		post(body);
 	}
 	if (event.mic !== undefined) {
-		let d = event.mic;
 		let body = [{
 			topic: 'event',
 			action: 'emit',
@@ -37,7 +36,6 @@ exports.handler = (event, context, callback) => {
 		post(body);
 	}
 	if (event.voicectrl !== undefined) {
-		let d = event.voicectrl;
 		let body = [{
 			topic: 'event',
 			action: 'emit',
