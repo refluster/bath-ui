@@ -21,13 +21,17 @@ import { MsgService } from './service/msg.service';
     `]
 })
 export class ControllerComponent {
+	private demo_data = [
+		{json: {weightscale: true}, text: '体重計'},
+		{json: {mic: {status: 'shower'}}, text: 'シャワー'},
+		{json: {voicectrl: {temperature: '+'}}, text: 'もっと温かく'},
+	];
 	private misc_data = [
 		{json: {misc: {recommend: true}}, text: 'recommend'},
 		{json: {misc: {alertLong: true}}, text: 'alert long bathing'},
 	];
 	private weightscale_data = [
 		{json: {userid: 0, weight: 60, bmi: 23}, text: 'user0'},
-		{json: {userid: 1, weight: 48, bmi: 20}, text: 'user1'},
 	];
 	private mic_data = [
 		{json: {noise: true}, text: 'noise'},
@@ -50,13 +54,6 @@ export class ControllerComponent {
 		{json: {lightB: {bright: 5}}, text: 'lightB bright 5'},
 		{json: {lightB: {dark: 3}}, text: 'lightB bright 3'},
 		{json: {temperature: '+'}, text: 'temperature +'},
-		{json: {temperature: '-'}, text: 'temperature -'},
-		{json: {temperature: 42}, text: 'temperature 42'},
-		{json: {temperature: 41}, text: 'temperature 41'},
-		{json: {temperature: 40}, text: 'temperature 40'},
-		{json: {temperature: 39}, text: 'temperature 39'},
-		{json: {temperature: 38}, text: 'temperature 38'},
-		{json: {temperature: 37}, text: 'temperature 37'},
 	];
 
 	constructor(private msgService: MsgService, el: ElementRef, private http: HttpClient) {}
@@ -74,6 +71,11 @@ export class ControllerComponent {
 					console.log("Error occured");
 				}
 			);
+	}
+
+	push_event(data): void {
+		const url = 'https://ljusw3bf2h.execute-api.ap-northeast-1.amazonaws.com/v0/bath/event';
+		this.post(url, data);
 	}
 
 	push_weightscale(data): void {

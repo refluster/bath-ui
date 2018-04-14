@@ -1,5 +1,14 @@
 <div id="main">
   <div>
+    demo synario
+    <ul>
+      <li *ngFor="let d of demo_data">
+        <button (click)="push_event(d.json)">{{d.text}}</button>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <div>
     weight scale
     <ul>
       <li *ngFor="let d of weightscale_data">
