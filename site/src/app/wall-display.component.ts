@@ -76,6 +76,9 @@ export class WallDisplayComponent {
 					if (d.mic.misc.recommend !== undefined) {
 						this.fadeInAnim('B14');
 					}
+					if (d.mic.misc.alertLong !== undefined) {
+						this.fadeInAnim('B30');
+					}
 				}
 			}
 			if (d.voicectrl !== undefined) {
