@@ -1,4 +1,4 @@
-const needle = require('needle')
+const needle = require('needle');
 
 exports.handler = (event, context, callback) => {
 	let eventName = 'esdc/bath/test';
@@ -7,12 +7,12 @@ exports.handler = (event, context, callback) => {
 		console.log('body: %j', body);
 		needle.post(process.env.HTTP_URL, { body }, { json: true }, (error, response) => {
 			if (error || response.body.result !== 'SUCCESS') {
-				console.log('Unable to emit event', response.body.toString())
-				return callback()
+				console.log('Unable to emit event', response.body.toString());
+				return callback();
 			}
-			console.log('post done by needle', response.body.toString())
-			callback(null, { statusCode: 200 })
-		})
+			console.log('post done by needle', response.body.toString());
+			callback(null, { statusCode: 200 });
+		});
 	}
 
 	console.log('event: %j', event);
@@ -27,6 +27,9 @@ exports.handler = (event, context, callback) => {
 		post(body);
 	}
 	if (event.mic !== undefined) {
+		if (event.mic.status !== undefined) {
+			event.voicectrl = {lightA: {dark: 5}};
+		}
 		let body = [{
 			topic: 'event',
 			action: 'emit',
@@ -44,4 +47,4 @@ exports.handler = (event, context, callback) => {
 		}];
 		post(body);
 	}
-}
+};
