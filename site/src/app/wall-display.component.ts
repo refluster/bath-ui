@@ -42,6 +42,7 @@ img {
 })
 export class WallDisplayComponent {
 	private state = {
+		B00: 'hide',
 		B10: 'hide',
 		B11: 'hide',
 		B12: 'hide',
@@ -76,6 +77,9 @@ export class WallDisplayComponent {
 					}
 				}
 				if (d.mic.misc !== undefined) {
+					if (d.mic.misc.reset !== undefined) {
+						this.fadeInAnim('B10');
+					}
 					if (d.mic.misc.recommend !== undefined) {
 						this.fadeInAnim('B14');
 					}

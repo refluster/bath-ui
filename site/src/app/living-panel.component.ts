@@ -80,6 +80,9 @@ export class LivingPanelComponent {
 					}
 				}
 				if (d.mic.misc !== undefined) {
+					if (d.mic.misc.reset !== undefined) {
+						this.fadeInAnim('L10');
+					}
 					if (d.mic.misc.alertLong !== undefined) {
 						this.fadeInAnim('L30');
 					}
