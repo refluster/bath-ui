@@ -33,8 +33,8 @@ img {
     `],
 	animations: [
 		trigger('fadeIn', [
-			state('display', style({ opacity: 1 })),
-			state('hide', style({ opacity: 0 })),
+			state('display', style({ opacity: 1; zIndex: 0 })),
+			state('hide', style({ opacity: 0; zIndex: 10000 })),
 			transition('hide => display', animate('2000ms linear')),
 			transition('display => hide', animate('0ms linear'))
 		])
