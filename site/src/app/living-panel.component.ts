@@ -62,10 +62,24 @@ export class LivingPanelComponent {
 		client.login();
 		client.event.subscribe('esdc/bath/test', d => {
 			console.log('deep steam io', d);
+			if (d.weightscale !== undefined) {
+				this.fadeInAnim('L11');
+			}
 			if (d.mic !== undefined &&
 				d.mic.noise == true) {
 				this.noise = true;
 			}
 		})
+	}
+
+	fadeInAnim(key): void {
+		this.state[key] = 'display';
+		if (this.lastKey != '') {
+			let k = this.lastKey;
+			setTimeout(() => {
+				this.state[k] = 'hide';
+			}, 2000);
+		}
+		this.lastKey = key;
 	}
 }
