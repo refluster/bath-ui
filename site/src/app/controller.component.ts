@@ -22,13 +22,13 @@ import { MsgService } from './service/msg.service';
 })
 export class ControllerComponent {
 	private demo_data = [
-		{json: {mic: {status: 'shower'}, voicectrl: {lightA: {dark: {swpower: true}}}}, text: 'リセット'},
-		{json: {weightscale: true}, text: '体重計に乗る'},
+		{json: {mic: {status: 'shower'}, voicectrl: {lightA: {dark: 10}}}, text: 'リセット'},
+		{json: {weightscale: true, voicectrl: {lightA: {bright: 10}}}, text: '体重計に乗る'},
 		{json: {mic: {status: 'shower'}}, text: 'シャワー'},
 		{json: {voicectrl: {temperature: '+'}}, text: 'もっと温かく'},
-		{json: {mic: {status: 'bathing'}}, text: '浴槽に入る'},
+		{json: {mic: {status: 'bathing'}, voicectrl: {lightA: {dark: 5}}}, text: '浴槽に入る'},
 		{json: {voicectrl: {changeMusic: true}}, text: '音楽を変えて'},
-		{json: {mic: {misc: {recommend: true}}}, text: '浴槽から出ることを促す'},
+		{json: {mic: {misc: {recommend: true}}, voicectrl: {lightA: {bright: 10}}}, text: '浴槽から出ることを促す'},
 		{json: {mic: {status: 'absent'}}, text: '浴槽から出る'},
 		{json: {voicectrl: {call: true}}, text: 'もうすぐ上がる'},
 		{json: {mic: {misc: {alertLong: true}}}, text: '長湯アラート'},
