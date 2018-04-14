@@ -55,6 +55,7 @@ export class WallDisplayComponent {
 	};
 	private B40 = 'display';
 	private lastKey = '';
+	private transform = '';
 
 	constructor(private msgService: MsgService) {}
 
@@ -85,6 +86,22 @@ export class WallDisplayComponent {
 					}
 					if (d.mic.misc.alertLong !== undefined) {
 						this.fadeInAnim('B30');
+					}
+					if (d.mic.misc.rotate !== undefined) {
+						switch (d.mic.misc.rotate) {
+						case 0:
+							this.transform = '';
+							break;
+						case 90:
+							this.transform = 'rotate(90deg)';
+							break;
+						case 180:
+							this.transform = 'rotate(180deg)';
+							break;
+						case 270:
+							this.transform = 'rotate(270deg)';
+							break;
+						}
 					}
 				}
 			}
