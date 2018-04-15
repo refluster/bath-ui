@@ -12,7 +12,8 @@ import { MsgService } from './service/msg.service';
         margin: 4px 0px;
       }
       li {
-        margin: 2px 0px;
+        margin: 4px 8px;
+        display: inline-block;
       }
       hr {
         margin: 8px 0px;
