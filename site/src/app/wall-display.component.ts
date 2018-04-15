@@ -18,6 +18,7 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
   top: 0;
   left: 0;
   background-color: #ba9;
+  transform-origin: 0px 0px;
 }
 .resource {
   position: absolute;
@@ -93,13 +94,13 @@ export class WallDisplayComponent {
 							this.transform = '';
 							break;
 						case 90:
-							this.transform = 'rotate(90deg)';
+							this.transform = 'matrix(0,1,-1,0,3840,0)';
 							break;
 						case 180:
-							this.transform = 'rotate(180deg)';
+							this.transform = 'matrix(-1,0,-0,-1,2160,3840)';
 							break;
 						case 270:
-							this.transform = 'rotate(270deg)';
+							this.transform = 'matrix(-0,-1,1,0,0,2160)';
 							break;
 						}
 					}
