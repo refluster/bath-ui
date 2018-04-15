@@ -35,6 +35,8 @@ export class ControllerComponent {
 		{json: {mic: {misc: {alertLong: true}}}, text: '長湯アラート'},
 		{json: {mic: {noise: true}}, text: '転倒'},
 		{json: {mic: {misc: {results: true}}}, text: '入浴結果'},
+	];
+	private bath_disp_ctrl_data = [
 		{json: {mic: {misc: {rotate: 0}}}, text: 'bath disp rot 0'},
 		{json: {mic: {misc: {rotate: 90}}}, text: 'bath disp rot 90'},
 		{json: {mic: {misc: {rotate: 180}}}, text: 'bath disp rot 180'},

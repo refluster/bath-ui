@@ -9,6 +9,15 @@
   </div>
   <hr>
   <div>
+    bath display rotation
+    <ul>
+      <li *ngFor="let d of bath_disp_ctrl_data">
+        <button (click)="push_event(d.json)">{{d.text}}</button>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <div>
     weight scale
     <ul>
       <li *ngFor="let d of weightscale_data">
