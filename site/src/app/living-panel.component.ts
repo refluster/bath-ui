@@ -53,8 +53,12 @@ export class LivingPanelComponent {
 		L50: 'hide',
 	};
 	private lastKey = '';
+	private _el: HTMLElement;
 
-	constructor(private msgService: MsgService) {}
+	constructor(private msgService: MsgService,
+				private el: ElementRef) {
+		this._el = el.nativeElement;
+	}
 
 	ngOnInit(): void {
 		let client = deepstream('52.192.206.13:6020');
@@ -95,6 +99,8 @@ export class LivingPanelComponent {
 	}
 
 	fadeInAnim(key): void {
+        let audio = (<HTMLAudioElement>this._el.querySelector("." + key));
+        audio.play();
 		this.state[key] = 'display';
 		if (this.lastKey != '' && this.lastKey != key) {
 			let k = this.lastKey;
