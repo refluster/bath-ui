@@ -58,7 +58,8 @@ export class WallDisplayComponent {
 	private lastKey = '';
 	private transform = '';
 
-	constructor(private msgService: MsgService) {}
+	constructor(private msgService: MsgService) {
+	}
 
 	ngOnInit(): void {
 		let client = deepstream('52.192.206.13:6020');
