@@ -95,7 +95,7 @@ export class LivingPanelComponent {
 					}
 				}
 			}
-		})
+		});
 	}
 
 	fadeInAnim(key): void {
