@@ -41,6 +41,9 @@ export class ControllerComponent {
 		{json: {mic: {misc: {rotate: 90}}}, text: 'bath disp rot 90'},
 		{json: {mic: {misc: {rotate: 180}}}, text: 'bath disp rot 180'},
 		{json: {mic: {misc: {rotate: 270}}}, text: 'bath disp rot 270'},
+		{json: {mic: {misc: {test: '4k60p'}}}, text: '4k60p'},
+		{json: {mic: {misc: {test: '4k30p'}}}, text: '4k30p'},
+		{json: {mic: {misc: {test: '2k60p'}}}, text: '2k60p'},
 	];
 	private misc_data = [
 		{json: {misc: {recommend: true}}, text: 'recommend'},

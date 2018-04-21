@@ -27,7 +27,7 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
   height: 100%;
   background-color: #ba9;
 }
-img {
+video, img {
   width: 100%;
   height: 100%;
 }
@@ -53,6 +53,9 @@ export class WallDisplayComponent {
 		B20: 'hide',
 		B30: 'hide',
 		B40: 'hide',
+		B4k60p: 'hide',
+		B4k30p: 'hide',
+		B2k60p: 'hide',
 	};
 	private B40 = 'display';
 	private lastKey = '';
@@ -102,6 +105,19 @@ export class WallDisplayComponent {
 							break;
 						case 270:
 							this.transform = 'matrix(-0,-1,1,0,0,2160)';
+							break;
+						}
+					}
+					if (d.mic.misc.test !== undefined) {
+						switch (d.mic.misc.test) {
+						case '4k60p':
+							this.fadeInAnim('B4k60p');
+							break;
+						case '4k30p':
+							this.fadeInAnim('B4k30p');
+							break;
+						case '2k60p':
+							this.fadeInAnim('B2k60p');
 							break;
 						}
 					}
