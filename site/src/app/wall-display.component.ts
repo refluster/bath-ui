@@ -60,8 +60,10 @@ export class WallDisplayComponent {
 	private B40 = 'display';
 	private lastKey = '';
 	private transform = '';
+	private _el: HTMLElement;
 
-	constructor(private msgService: MsgService) {
+	constructor(private msgService: MsgService, el: ElementRef) {
+		this._el = el.nativeElement;
 	}
 
 	ngOnInit(): void {
@@ -142,6 +144,10 @@ export class WallDisplayComponent {
 
 	fadeInAnim(key): void {
 		this.state[key] = 'display';
+		let video = (<HTMLVideoElement>this._el.querySelector('#v' + key));
+		if (video != null) {
+			video.play();
+		}
 		if (this.lastKey != '' && this.lastKey != key) {
 			let k = this.lastKey;
 			setTimeout(() => {
