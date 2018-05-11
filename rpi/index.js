@@ -11,33 +11,46 @@ let ledBswpower = new Gpio(22, 'out');
 let ledBbright = new Gpio(10, 'out');
 let ledBdark = new Gpio(9, 'out');
 
-function lightCtrl(d) {
+let ledA = {
+	power: ledApower,
+	swpower: ledAswpower,
+	bright: ledAbright,
+	dark: ledAdark,
+}
+let ledB = {
+	power: ledBpower,
+	swpower: ledBswpower,
+	bright: ledBbright,
+	dark: ledBdark,
+}
+
+function lightCtrl(led, d) {
 	if (d.power == true) {
 		console.log('light power on');
-		ledApower.writeSync(1);
+		led.power.writeSync(1);
 	} else if (d.power == false) {
 		console.log('light power off');
-		ledApower.writeSync(0);
+		led.power.writeSync(0);
 	}
 	if (d.swpower == true) {
 		console.log('light power off');
-		ledAswpower.writeSync(1);
+		led.swpower.writeSync(1);
 		setTimeout(() => {
-			ledAswpower.writeSync(0);
+			led.swpower.writeSync(0);
 		}, 200);
 	}
 	if (d.bright > 0) {
 		console.log('light bright ', d.bright);
-		ledAbright.writeSync(1);
+		led.bright.writeSync(1);
 		setTimeout(() => {
-			ledAbright.writeSync(0);
+			led.bright.writeSync(0);
 		}, 1000*d.bright);
 	}
 	if (d.dark > 0) {
 		console.log('light dark ', d.dark);
-		ledAdark.writeSync(1);
+		led.dark.writeSync(1);
 		setTimeout(() => {
-			ledAdark.writeSync(0);
+			led.dark.writeSync(0);
 		}, 1000*d.dark);
 	}
 }
@@ -45,13 +58,14 @@ function lightCtrl(d) {
 client.login();
 client.event.subscribe('esdc/bath/test', data => {
 	if (data.voicectrl !== undefined) {
+		console.log(data);
 		if (data.voicectrl.lightA !== undefined) {
 			console.log('lightA');
-			lightCtrl(data.voicectrl.lightA);
+			lightCtrl(ledA, data.voicectrl.lightA);
 		}
 		if (data.voicectrl.lightB !== undefined) {
 			console.log('lightB');
-			lightCtrl(data.voicectrl.lightB);
+			lightCtrl(ledB, data.voicectrl.lightB);
 		}
 	}
 });
