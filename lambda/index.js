@@ -17,6 +17,7 @@ exports.handler = (event, context, callback) => {
 
 	console.log('event: %j', event);
 
+	/*
 	if (event.weightscale !== undefined) {
 	}
 	if (event.mic !== undefined) {
@@ -27,6 +28,7 @@ exports.handler = (event, context, callback) => {
 	}
 	if (event.voicectrl !== undefined) {
 	}
+	*/
 
 	let body = [{
 		topic: 'event',
