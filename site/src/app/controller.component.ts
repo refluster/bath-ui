@@ -23,8 +23,8 @@ import { MsgService } from './service/msg.service';
 })
 export class ControllerComponent {
 	private demo_data = [
-		{json: {mic: {misc: {reset: true}}, voicectrl: {lightA: {dark: 10}}}, text: 'リセット'},
-		{json: {weightscale: true, voicectrl: {lightA: {bright: 10}}}, text: '体重計に乗る'},
+		{json: {mic: {misc: {reset: true}}, voicectrl: {lightA: {dark: 10}, lightB: {dark: 10}}}, text: 'リセット'},
+		{json: {weightscale: true, voicectrl: {lightA: {bright: 10}, lightB: {bright: 10}}}, text: '体重計に乗る'},
 		{json: {mic: {status: 'shower'}}, text: 'シャワー'},
 		{json: {voicectrl: {temperature: '+'}}, text: 'もっと温かく'},
 		{json: {mic: {status: 'bathing'}, voicectrl: {lightA: {dark: 5}, lightB: {dark: 5}}}, text: '浴槽に入る'},
