@@ -9,12 +9,12 @@ import { trigger, state, style, transition, animate, group } from '@angular/anim
 	styles: [`
 #main {
   width: 1920px;
-  height: 1080px;
+  height: 1280px;
 }
 #content {
   position: relative;
   width: 1920px;
-  height: 1080px;
+  height: 1280px;
   top: 0;
   left: 0;
   background-color: #000;
